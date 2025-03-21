@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "id": "potentia",
+  "version": "${version}",
+  "name": "potentia",
+  "description": "A collection of origins with negative rhyme or reason. Requires Origins, Pehkui, and Fabric API.",
+  "authors": [],
+  "contact": {},
+  "license": "All-Rights-Reserved",
+  "icon": "assets/potentia/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "client": [
+      "org.blueben.potentia.client.PotentiaClient"
+    ],
+    "main": [
+      "org.blueben.potentia.Potentia"
+    ]
+  },
+  "mixins": [
+    "potentia.mixins.json",
+    {
+      "config": "potentia.client.mixins.json",
+      "environment": "client"
+    }
+  ],
+  "depends": {
+    "fabricloader": ">=${loader_version}",
+    "fabric": "*",
+    "minecraft": "${minecraft_version}"
+  }
+}
