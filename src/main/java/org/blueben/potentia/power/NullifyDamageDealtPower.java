@@ -35,6 +35,8 @@ public class NullifyDamageDealtPower extends Power {
             p.getWorld().playSound(null, p.getX(), p.getY(), p.getZ(), sound, SoundCategory.NEUTRAL, 0.5F, 0.4F / (p.getRandom().nextFloat() * 0.4F + 0.8F));
         }
     }
+
+
     public static PowerFactory createFactory() {
         return new PowerFactory<>(new Identifier("potentia","nullify_damage_dealt"),
                 new SerializableData().add("chance", SerializableDataTypes.FLOAT, 1.0f)

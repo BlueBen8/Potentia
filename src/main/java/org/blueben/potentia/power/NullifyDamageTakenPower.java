@@ -1,5 +1,6 @@
 package org.blueben.potentia.power;
 
+import io.github.apace100.apoli.power.Active;
 import io.github.apace100.apoli.power.ActiveCooldownPower;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
@@ -30,6 +31,7 @@ public class NullifyDamageTakenPower extends Power {
             p.getWorld().playSound(null, p.getX(), p.getY(), p.getZ(), sound, SoundCategory.NEUTRAL, 0.5F, 0.4F / (p.getRandom().nextFloat() * 0.4F + 0.8F));
         }
     }
+
 
     public static PowerFactory createFactory() {
         return new PowerFactory<>(new Identifier("potentia","nullify_damage_taken"),

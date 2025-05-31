@@ -20,12 +20,14 @@ public class LivingEntityMixin {
         LivingEntity damage = (LivingEntity)(Object)this;
         for (NullifyDamageTakenPower power : PowerHolderComponent.getPowers(damage, NullifyDamageTakenPower.class)) {
             if (power.isActive()) {
+                power.onUse();
                 cir.setReturnValue(false);
                 return;
             }
         }
         for (NullifyDamageDealtPower power : PowerHolderComponent.getPowers(source.getAttacker(), NullifyDamageDealtPower.class)) {
             if (power.isActive()) {
+                power.onUse();
                 cir.setReturnValue(false);
                 return;
             }
