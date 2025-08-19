@@ -39,11 +39,11 @@ public class CharismaPower extends Power {
 
     public static PowerFactory createFactory() {
         return new PowerFactory<>(new Identifier("potentia","charisma"),
-                new SerializableData().add("strength", SerializableDataTypes.INT, 1).add("giveGifts", SerializableDataTypes.BOOLEAN, true),
+                new SerializableData().add("strength", SerializableDataTypes.INT, 1).add("give_gifts", SerializableDataTypes.BOOLEAN, true),
 
                 data -> {
                     int strength = data.get("strength");
-                    boolean giveGifts = data.get("giveGifts");
+                    boolean giveGifts = data.get("give_gifts");
                     return (type, player) -> {
                         CharismaPower power = new CharismaPower(type, player, strength, giveGifts);
                         return power;
