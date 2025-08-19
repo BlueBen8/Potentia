@@ -15,9 +15,11 @@ import net.minecraft.village.TradeOffer;
 
 public class CharismaPower extends Power {
     protected int strength;
-    public CharismaPower(PowerType<?> type, LivingEntity entity, int strength) {
+    protected boolean giveGifts;
+    public CharismaPower(PowerType<?> type, LivingEntity entity, int strength, boolean giveGifts) {
         super(type, entity);
         this.strength = strength;
+        this.giveGifts = giveGifts;
 
 
     }
@@ -31,14 +33,19 @@ public class CharismaPower extends Power {
         return strength;
     }
 
+    public boolean isGiveGifts() {
+        return giveGifts;
+    }
+
     public static PowerFactory createFactory() {
         return new PowerFactory<>(new Identifier("potentia","charisma"),
-                new SerializableData().add("strength", SerializableDataTypes.INT, 1),
+                new SerializableData().add("strength", SerializableDataTypes.INT, 1).add("giveGifts", SerializableDataTypes.BOOLEAN, true),
 
                 data -> {
                     int strength = data.get("strength");
+                    boolean giveGifts = data.get("giveGifts");
                     return (type, player) -> {
-                        CharismaPower power = new CharismaPower(type, player, strength);
+                        CharismaPower power = new CharismaPower(type, player, strength, giveGifts);
                         return power;
                     };
                 }).allowCondition();
