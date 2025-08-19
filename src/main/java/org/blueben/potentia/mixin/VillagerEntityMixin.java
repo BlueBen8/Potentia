@@ -1,19 +1,14 @@
 package org.blueben.potentia.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.entity.passive.VillagerEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.village.TradeOffer;
 import org.blueben.potentia.power.CharismaPower;
-import org.blueben.potentia.power.NullifyDamageDealtPower;
-import org.blueben.potentia.power.NullifyDamageTakenPower;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(VillagerEntity.class)
 public class VillagerEntityMixin {
@@ -25,9 +20,16 @@ public class VillagerEntityMixin {
             if (power.isActive()) {
                 int j = power.getStrength() * 15;
                 for (TradeOffer tradeOffer2 : villager.getOffers()) {
-                    double d = j / 100.0;
-                    tradeOffer2.increaseSpecialPrice(-j);
-                    System.out.println("Villager trade decreased.");
+                    tradeOffer2.clearSpecialPrice();
+
+                    var cost = tradeOffer2.getAdjustedFirstBuyItem().getCount();
+
+                    var reducedCost = cost * (1 - (j / 100.0));
+
+                    var costToDeduct = cost-reducedCost;
+
+                    tradeOffer2.increaseSpecialPrice((int) -costToDeduct);
+                    System.out.printf("Villager trade for %s decreased by %.2f (from %d to %d)%n", tradeOffer2.getOriginalFirstBuyItem().getName().getString(), costToDeduct, cost, (int) (cost-costToDeduct));
                 }
                 ci.cancel();
                 return;
