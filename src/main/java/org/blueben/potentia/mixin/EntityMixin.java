@@ -1,0 +1,37 @@
+package org.blueben.potentia.mixin;
+
+import io.github.apace100.apoli.component.PowerHolderComponent;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.player.PlayerEntity;
+import org.blueben.potentia.Potentia;
+import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.injection.At;
+import org.spongepowered.asm.mixin.injection.Inject;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
+
+@Mixin(Entity.class)
+public class EntityMixin {
+    @Inject(method = "onLanding", at = @At("HEAD"))
+    // @Inject(method = "fall", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;onLandedUpon(Lnet/minecraft/world/World;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;F)V"))
+    private void injected(CallbackInfo ci) {
+        Entity entity = (Entity)(Object)this;
+        var array = Potentia.onLandingEntityActions.get(entity);
+        if (array == null || array.isEmpty()) {
+            return;
+        }
+        System.out.println("Entity has landed! (Bingus) -" + " " + entity.getX() + " " + entity.getY() + " " + entity.getZ());
+        var iterated = array.iterator();
+        while (iterated.hasNext()) {
+            var action = iterated.next();
+            if (action.getTimesOnGround() <= Potentia.timesToSkip) {
+                action.incrementTimesOnGround();
+                continue;
+            }
+            action.getAction().accept(entity);
+            iterated.remove();
+        }
+        System.out.println("array has been cleared (zingus)");
+    }
+}

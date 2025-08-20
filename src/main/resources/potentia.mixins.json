@@ -6,7 +6,8 @@
   "mixins": [
     "LivingEntityMixin",
     "VillagerEntityMixin",
-    "GiveGiftToHeroTaskMixin"
+    "GiveGiftToHeroTaskMixin",
+    "EntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
