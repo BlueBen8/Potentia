@@ -1,20 +1,20 @@
 package org.blueben.potentia.mixin;
 
-import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
-import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.world.World;
 import org.blueben.potentia.Potentia;
 import org.spongepowered.asm.mixin.Mixin;
+import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
-import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public class EntityMixin {
-    @Inject(method = "onLanding", at = @At("HEAD"))
-    // @Inject(method = "fall", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;onLandedUpon(Lnet/minecraft/world/World;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;F)V"))
+
+    @Shadow private World world;
+
+    @Inject(method = "fall", at = @At(value = "INVOKE", target = "Lnet/minecraft/block/Block;onLandedUpon(Lnet/minecraft/world/World;Lnet/minecraft/block/BlockState;Lnet/minecraft/util/math/BlockPos;Lnet/minecraft/entity/Entity;F)V"))
     private void injected(CallbackInfo ci) {
         Entity entity = (Entity)(Object)this;
         var array = Potentia.onLandingEntityActions.get(entity);
@@ -25,11 +25,26 @@ public class EntityMixin {
         var iterated = array.iterator();
         while (iterated.hasNext()) {
             var action = iterated.next();
-            if (action.getTimesOnGround() <= Potentia.timesToSkip) {
-                action.incrementTimesOnGround();
+
+            if (!action.isRunOnClient() && !action.isRunOnServer()) {
+                iterated.remove();
                 continue;
             }
-            action.getAction().accept(entity);
+
+            if (world.isClient && !action.isRunOnClient()) {
+                continue;
+            }
+
+            if (!world.isClient && !action.isRunOnServer()) {
+                continue;
+            }
+
+            var entityAction = action.getAction();
+
+            if (entityAction != null) {
+                entityAction.accept(entity);
+            }
+
             iterated.remove();
         }
         System.out.println("array has been cleared (zingus)");

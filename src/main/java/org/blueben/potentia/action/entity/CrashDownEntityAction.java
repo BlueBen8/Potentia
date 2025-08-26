@@ -1,15 +1,11 @@
 package org.blueben.potentia.action.entity;
 
 import io.github.apace100.apoli.data.ApoliDataTypes;
-import io.github.apace100.apoli.power.PowerType;
-import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.util.Space;
 import io.github.apace100.calio.data.SerializableData;
-import io.github.apace100.calio.data.SerializableDataType;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.Entity;
-import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.util.TriConsumer;
@@ -53,12 +49,12 @@ public class CrashDownEntityAction {
         method.accept(vec.x, vec.y, vec.z);
         entity.velocityModified = true;
         List<LandingAction> array = Potentia.onLandingEntityActions.getOrDefault(entity, new ArrayList<>());
-        array.add(new LandingAction(action));
+        array.add(new LandingAction(action, client, server));
         Potentia.onLandingEntityActions.put(entity, array);
     }
 
     public static ActionFactory<Entity> createFactory() {
-        return new ActionFactory<Entity>(new Identifier("potentia","crash_down"),
+        return new ActionFactory<>(new Identifier("potentia","crash_down"),
                 new SerializableData()
                         .add("x", SerializableDataTypes.FLOAT, 0F)
                         .add("y", SerializableDataTypes.FLOAT, 0F)
@@ -67,11 +63,8 @@ public class CrashDownEntityAction {
                         .add("client", SerializableDataTypes.BOOLEAN, true)
                         .add("server", SerializableDataTypes.BOOLEAN, true)
                         .add("set", SerializableDataTypes.BOOLEAN, false)
-                        .add("action", ApoliDataTypes.ENTITY_ACTION, null)
-                        .add("times_to_skip", SerializableDataTypes.INT),
-
+                        .add("action", ApoliDataTypes.ENTITY_ACTION, null),
                 (data, entity) -> {
-                    System.out.println(data);
                     float x = data.get("x");
                     float y = data.get("y");
                     float z = data.get("z");
@@ -80,10 +73,7 @@ public class CrashDownEntityAction {
                     boolean server = data.get("server");
                     boolean set = data.get("set");
                     ActionFactory<Entity>.Instance action = data.get("action");
-                     if (data.isPresent("times_to_skip")) {
-                         Potentia.timesToSkip = data.get("times_to_skip");
-                         System.out.println("times to skip = " + Potentia.timesToSkip);
-                     }
+
                     new CrashDownEntityAction(entity, x, y, z, space, client, server, set, action);
                 }
                 );
