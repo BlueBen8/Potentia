@@ -1,11 +1,8 @@
 package org.blueben.potentia.power;
 
-import io.github.apace100.apoli.power.Active;
-import io.github.apace100.apoli.power.ActiveCooldownPower;
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
-import io.github.apace100.apoli.util.HudRender;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.LivingEntity;
