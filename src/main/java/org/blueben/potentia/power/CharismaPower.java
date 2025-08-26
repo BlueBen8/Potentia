@@ -18,11 +18,6 @@ public class CharismaPower extends Power {
 
 
     }
-    public void onUse() {
-        if (!entity.getWorld().isClient && entity instanceof PlayerEntity p) {
-
-        }
-    }
 
     public int getStrength() {
         return strength;
