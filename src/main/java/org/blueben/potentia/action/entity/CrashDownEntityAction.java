@@ -2,15 +2,18 @@ package org.blueben.potentia.action.entity;
 
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
+import io.github.apace100.apoli.power.factory.action.meta.SideAction.Side;
 import io.github.apace100.apoli.util.Space;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataTypes;
+import java.util.UUID;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.util.TriConsumer;
 import org.blueben.potentia.LandingAction;
 import org.blueben.potentia.Potentia;
+import org.blueben.potentia.SideUtility;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;
@@ -48,9 +51,14 @@ public class CrashDownEntityAction {
         this.space.toGlobal(vec, entity);
         method.accept(vec.x, vec.y, vec.z);
         entity.velocityModified = true;
-        List<LandingAction> array = Potentia.onLandingEntityActions.getOrDefault(entity, new ArrayList<>());
+
+        UUID entityUuid = entity.getUuid();
+
+        Side side = SideUtility.from(entity);
+
+        List<LandingAction> array = Potentia.onLandingEntityActions.get(side).getOrDefault(entityUuid, new ArrayList<>());
         array.add(new LandingAction(action, client, server));
-        Potentia.onLandingEntityActions.put(entity, array);
+        Potentia.onLandingEntityActions.get(side).put(entityUuid, array);
     }
 
     public static ActionFactory<Entity> createFactory() {
