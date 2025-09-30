@@ -7,7 +7,8 @@
     "LivingEntityMixin",
     "VillagerEntityMixin",
     "GiveGiftToHeroTaskMixin",
-    "EntityMixin"
+    "EntityMixin",
+    "MobEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

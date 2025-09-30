@@ -23,7 +23,7 @@ public class NullifyDamageDealtPower extends Power {
 
     }
     public void onUse() {
-        if (!entity.getWorld().isClient && entity instanceof PlayerEntity p) {
+        if (!entity.getWorld().isClient && entity instanceof PlayerEntity p && sound != null) {
             p.getWorld().playSound(null, p.getX(), p.getY(), p.getZ(), sound, SoundCategory.NEUTRAL, 0.5F, 0.4F / (p.getRandom().nextFloat() * 0.4F + 0.8F));
         }
     }
