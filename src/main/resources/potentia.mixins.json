@@ -9,7 +9,8 @@
     "GiveGiftToHeroTaskMixin",
     "EntityMixin",
     "MobEntityMixin",
-    "TheBrainMixin"
+    "TheBrainMixin",
+    "WitherEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
