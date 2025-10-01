@@ -8,7 +8,8 @@
     "VillagerEntityMixin",
     "GiveGiftToHeroTaskMixin",
     "EntityMixin",
-    "MobEntityMixin"
+    "MobEntityMixin",
+    "TheBrainMixin"
   ],
   "injectors": {
     "defaultRequire": 1

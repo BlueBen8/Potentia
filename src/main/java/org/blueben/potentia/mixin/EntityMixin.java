@@ -2,6 +2,7 @@ package org.blueben.potentia.mixin;
 
 import java.util.UUID;
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.world.World;
 import org.blueben.potentia.Potentia;
 import org.blueben.potentia.SideUtility;
@@ -10,6 +11,7 @@ import org.spongepowered.asm.mixin.Shadow;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
+import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(Entity.class)
 public abstract class EntityMixin {
@@ -27,7 +29,7 @@ public abstract class EntityMixin {
         if (array == null || array.isEmpty()) {
             return;
         }
-        System.out.println("Entity has landed! (Bingus) -" + " " + entity.getX() + " " + entity.getY() + " " + entity.getZ());
+
         var iterated = array.iterator();
         while (iterated.hasNext()) {
             var action = iterated.next();
@@ -55,6 +57,7 @@ public abstract class EntityMixin {
 
             iterated.remove();
         }
-        System.out.println("array has been cleared (zingus)");
+
     }
+
 }

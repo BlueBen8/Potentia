@@ -3,6 +3,7 @@ package org.blueben.potentia.mixin;
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
+import org.blueben.potentia.power.MakeMobsFriendlyPower;
 import org.blueben.potentia.power.NullifyDamageDealtPower;
 import org.blueben.potentia.power.NullifyDamageTakenPower;
 import org.spongepowered.asm.mixin.Mixin;
@@ -25,6 +26,12 @@ public class LivingEntityMixin {
         for (NullifyDamageDealtPower power : PowerHolderComponent.getPowers(source.getAttacker(), NullifyDamageDealtPower.class)) {
             if (power.isActive()) {
                 power.onUse();
+                cir.setReturnValue(false);
+                return;
+            }
+        }
+        for (MakeMobsFriendlyPower power : PowerHolderComponent.getPowers(damage, MakeMobsFriendlyPower.class)) {
+            if (power.isActive() && power.getEntityList().contains(source.getAttacker().getType())) {
                 cir.setReturnValue(false);
                 return;
             }
