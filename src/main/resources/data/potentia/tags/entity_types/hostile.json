@@ -1,0 +1,23 @@
+{
+  "values": [
+    "#minecraft:skeletons",
+    "#potentia:aquatic_hostile",
+    "#potentia:arthropods_hostile",
+    "#potentia:bosses",
+    "#potentia:gelatinous",
+    "#minecraft:raiders",
+    "#potentia:pigs_hostile",
+    "minecraft:drowned",
+    "minecraft:husk",
+    "minecraft:zoglin",
+    "minecraft:zombie",
+    "minecraft:zombie_villager",
+    "minecraft:blaze",
+    "minecraft:creeper",
+    "minecraft:ghast",
+    "minecraft:phantom",
+    "minecraft:shulker",
+    "minecraft:vex"
+  ]
+
+}

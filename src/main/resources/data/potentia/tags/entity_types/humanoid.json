@@ -1,0 +1,14 @@
+{
+  "values": [
+    "#minecraft:skeletons",
+    "#potentia:illagers",
+    "#potentia:zombies",
+    "minecraft:villager",
+    "minecraft:wandering_trader",
+    "minecraft:enderman",
+    "minecraft:piglin",
+    "minecraft:husk",
+    "minecraft:piglin_brute",
+    "minecraft:witch"
+  ]
+}

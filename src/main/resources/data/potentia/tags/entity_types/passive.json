@@ -1,0 +1,21 @@
+{
+  "values": [
+    "#potentia:aquatic_passive",
+    "#potentia:rideable",
+    "#potentia:cats",
+    "minecraft:allay",
+    "minecraft:bat",
+    "minecraft:chicken",
+    "minecraft:cow",
+    "minecraft:frog",
+    "minecraft:mooshroom",
+    "minecraft:parrot",
+    "minecraft:rabbit",
+    "minecraft:sniffer",
+    "minecraft:snow_golem",
+    "minecraft:villager",
+    "minecraft:wandering_trader",
+    "minecraft:fox"
+
+  ]
+}

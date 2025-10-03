@@ -1,0 +1,15 @@
+{
+  "values": [
+    "#potentia:arthropods_neutral",
+    "#potentia:bears",
+    "minecraft:enderman",
+    "minecraft:goat",
+    "minecraft:iron_golem",
+    "minecraft:llama",
+    "minecraft:piglin",
+    "minecraft:trader_llama",
+    "minecraft:zombified_piglin",
+    "minecraft:wolf"
+
+  ]
+}
