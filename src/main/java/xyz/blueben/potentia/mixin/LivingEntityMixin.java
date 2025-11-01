@@ -1,13 +1,13 @@
-package org.blueben.potentia.mixin;
+package xyz.blueben.potentia.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.damage.DamageSource;
 import net.minecraft.registry.tag.DamageTypeTags;
-import org.blueben.potentia.power.MakeMobsFriendlyPower;
-import org.blueben.potentia.power.NullifyDamageDealtPower;
-import org.blueben.potentia.power.NullifyDamageTakenPower;
+import xyz.blueben.potentia.power.MakeMobsFriendlyPower;
+import xyz.blueben.potentia.power.NullifyDamageDealtPower;
+import xyz.blueben.potentia.power.NullifyDamageTakenPower;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

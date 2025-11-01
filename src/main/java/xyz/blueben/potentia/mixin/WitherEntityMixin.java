@@ -1,4 +1,4 @@
-package org.blueben.potentia.mixin;
+package xyz.blueben.potentia.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
@@ -8,7 +8,7 @@ import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.mob.HostileEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.world.World;
-import org.blueben.potentia.power.MakeMobsFriendlyPower;
+import xyz.blueben.potentia.power.MakeMobsFriendlyPower;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;

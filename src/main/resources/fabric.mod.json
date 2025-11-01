@@ -11,10 +11,10 @@
   "environment": "*",
   "entrypoints": {
     "client": [
-      "org.blueben.potentia.client.PotentiaClient"
+      "xyz.blueben.potentia.client.PotentiaClient"
     ],
     "main": [
-      "org.blueben.potentia.Potentia"
+      "xyz.blueben.potentia.Potentia"
     ]
   },
   "mixins": [

@@ -1,9 +1,9 @@
-package org.blueben.potentia;
+package xyz.blueben.potentia;
 
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.registry.Registry;
-import org.blueben.potentia.power.*;
+import xyz.blueben.potentia.power.*;
 
 
 public class ModPowers {

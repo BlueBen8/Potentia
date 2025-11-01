@@ -1,4 +1,4 @@
-package org.blueben.potentia.mixin;
+package xyz.blueben.potentia.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.EntityType;
@@ -9,7 +9,7 @@ import net.minecraft.entity.ai.brain.MemoryModuleType;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.util.math.Vec3d;
-import org.blueben.potentia.power.MakeMobsFriendlyPower;
+import xyz.blueben.potentia.power.MakeMobsFriendlyPower;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;

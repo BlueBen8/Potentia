@@ -1,10 +1,10 @@
-package org.blueben.potentia;
+package xyz.blueben.potentia;
 
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import io.github.apace100.apoli.registry.ApoliRegistries;
 import net.minecraft.entity.Entity;
 import net.minecraft.registry.Registry;
-import org.blueben.potentia.action.entity.CrashDownEntityAction;
+import xyz.blueben.potentia.action.entity.CrashDownEntityAction;
 
 
 

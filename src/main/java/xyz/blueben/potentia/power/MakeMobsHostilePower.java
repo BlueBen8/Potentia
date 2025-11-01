@@ -1,18 +1,14 @@
-package org.blueben.potentia.power;
+package xyz.blueben.potentia.power;
 
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
-import io.github.apace100.calio.data.SerializableDataType;
 import io.github.apace100.calio.data.SerializableDataTypes;
 import io.github.apace100.calio.util.TagLike;
 import net.minecraft.entity.EntityType;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.registry.tag.TagKey;
 import net.minecraft.util.Identifier;
-
-import java.util.List;
 
 public class MakeMobsHostilePower extends Power {
     protected TagLike<EntityType<?>> entityList;

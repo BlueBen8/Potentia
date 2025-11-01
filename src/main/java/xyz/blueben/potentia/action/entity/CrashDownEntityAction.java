@@ -1,4 +1,4 @@
-package org.blueben.potentia.action.entity;
+package xyz.blueben.potentia.action.entity;
 
 import io.github.apace100.apoli.data.ApoliDataTypes;
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
@@ -11,9 +11,9 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import org.apache.logging.log4j.util.TriConsumer;
-import org.blueben.potentia.LandingAction;
-import org.blueben.potentia.Potentia;
-import org.blueben.potentia.SideUtility;
+import xyz.blueben.potentia.LandingAction;
+import xyz.blueben.potentia.Potentia;
+import xyz.blueben.potentia.SideUtility;
 import org.joml.Vector3f;
 
 import java.util.ArrayList;

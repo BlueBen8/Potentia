@@ -1,4 +1,4 @@
-package org.blueben.potentia.client;
+package xyz.blueben.potentia.client;
 
 import net.fabricmc.api.ClientModInitializer;
 

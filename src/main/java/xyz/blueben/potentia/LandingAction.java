@@ -1,4 +1,4 @@
-package org.blueben.potentia;
+package xyz.blueben.potentia;
 
 import io.github.apace100.apoli.power.factory.action.ActionFactory;
 import net.minecraft.entity.Entity;

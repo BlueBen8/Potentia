@@ -1,4 +1,4 @@
-package org.blueben.potentia.power;
+package xyz.blueben.potentia.power;
 
 import io.github.apace100.apoli.power.Power;
 import io.github.apace100.apoli.power.PowerType;

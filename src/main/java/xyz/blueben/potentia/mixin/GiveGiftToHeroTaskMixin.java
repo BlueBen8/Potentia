@@ -1,9 +1,9 @@
-package org.blueben.potentia.mixin;
+package xyz.blueben.potentia.mixin;
 
 import io.github.apace100.apoli.component.PowerHolderComponent;
 import net.minecraft.entity.ai.brain.task.GiveGiftsToHeroTask;
 import net.minecraft.entity.player.PlayerEntity;
-import org.blueben.potentia.power.CharismaPower;
+import xyz.blueben.potentia.power.CharismaPower;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
