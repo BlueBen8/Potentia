@@ -10,7 +10,7 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
 @Mixin(GiveGiftsToHeroTask.class)
-public class GiveGiftToHeroTaskMixin {
+public class GiveGiftsToHeroTaskMixin {
     @Inject(method = "isHero", at = @At("HEAD"), cancellable = true)
     private void injected(PlayerEntity player, CallbackInfoReturnable<Boolean> cir) {
 

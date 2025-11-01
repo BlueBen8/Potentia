@@ -5,8 +5,8 @@
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "LivingEntityMixin",
-    "VillagerEntityMixin",
-    "GiveGiftToHeroTaskMixin",
+    "MerchantEntityMixin",
+    "GiveGiftsToHeroTaskMixin",
     "EntityMixin",
     "MobEntityMixin",
     "TheBrainMixin",
