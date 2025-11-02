@@ -22,7 +22,7 @@ import java.util.Map;
 import java.util.Optional;
 
 @Mixin(Brain.class)
-public class TheBrainMixin {
+public class BrainMixin {
     @Shadow @Final private Map<MemoryModuleType<?>, Optional<? extends Memory<?>>> memories;
 
     @Unique

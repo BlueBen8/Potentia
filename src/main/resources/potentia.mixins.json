@@ -9,7 +9,7 @@
     "GiveGiftsToHeroTaskMixin",
     "EntityMixin",
     "MobEntityMixin",
-    "TheBrainMixin",
+    "BrainMixin",
     "WitherEntityMixin"
   ],
   "injectors": {
