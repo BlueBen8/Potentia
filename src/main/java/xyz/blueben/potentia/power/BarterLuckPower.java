@@ -1,6 +1,5 @@
 package xyz.blueben.potentia.power;
 
-import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParseException;
 import io.github.apace100.apoli.power.Power;
@@ -8,16 +7,12 @@ import io.github.apace100.apoli.power.PowerType;
 import io.github.apace100.apoli.power.factory.PowerFactory;
 import io.github.apace100.calio.data.SerializableData;
 import io.github.apace100.calio.data.SerializableDataType;
-import io.github.apace100.calio.data.SerializableDataTypes;
 import net.minecraft.entity.LivingEntity;
-import net.minecraft.network.PacketByteBuf;
 import net.minecraft.util.Identifier;
 
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.function.BiConsumer;
-import java.util.function.Function;
 
 record BarterLuckData(Identifier id, int weight) {
     public static final SerializableDataType<BarterLuckData> TYPE = new SerializableDataType<>(

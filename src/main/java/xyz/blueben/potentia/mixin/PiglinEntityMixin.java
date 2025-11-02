@@ -5,7 +5,6 @@ import net.minecraft.entity.EntityType;
 import net.minecraft.entity.InventoryOwner;
 import net.minecraft.entity.ItemEntity;
 import net.minecraft.entity.mob.AbstractPiglinEntity;
-import net.minecraft.entity.mob.PiglinBrain;
 import net.minecraft.entity.mob.PiglinEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.ActionResult;
