@@ -16,6 +16,7 @@ import net.minecraft.loot.context.LootContextParameterSet;
 import net.minecraft.loot.context.LootContextParameters;
 import net.minecraft.loot.context.LootContextType;
 import net.minecraft.loot.entry.ItemEntry;
+import net.minecraft.loot.entry.LeafEntry;
 import net.minecraft.loot.entry.LootPoolEntry;
 import net.minecraft.loot.function.LootFunction;
 import net.minecraft.registry.Registries;
@@ -29,6 +30,8 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.blueben.potentia.HasBarterTarget;
+import xyz.blueben.potentia.LeafEntryBuilderAddFunctions;
+import xyz.blueben.potentia.LootTableEntryBuilderAddConditions;
 import xyz.blueben.potentia.power.BarterLuckPower;
 
 @Debug(export = true)
@@ -89,7 +92,19 @@ public abstract class LootTableMixin {
                   return entry;
                 }
 
-                return ItemEntry.builder(itemEntry.item).weight(modifiedItemWeight).build();
+                LeafEntry.Builder<?> itemEntryBuilder = ItemEntry.builder(itemEntry.item)
+                    .weight(modifiedItemWeight)
+                    .quality(itemEntry.quality);
+
+                if (itemEntryBuilder instanceof LootTableEntryBuilderAddConditions itemEntryAddConditions) {
+                  itemEntryAddConditions.addConditions(itemEntry.conditions);
+                }
+
+                if (itemEntryBuilder instanceof LeafEntryBuilderAddFunctions itemEntryAddFunctions) {
+                  itemEntryAddFunctions.addFunctions(itemEntry.functions);
+                }
+
+                return itemEntryBuilder.build();
               }).toArray(LootPoolEntry[]::new);
 
           return LootPool.builder()

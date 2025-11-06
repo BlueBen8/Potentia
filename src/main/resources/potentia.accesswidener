@@ -1,2 +1,6 @@
 accessWidener v2 named
 accessible field net/minecraft/loot/entry/ItemEntry item Lnet/minecraft/item/Item;
+
+accessible field net/minecraft/loot/entry/LeafEntry quality I
+accessible field net/minecraft/loot/entry/LootPoolEntry conditions [Lnet/minecraft/loot/condition/LootCondition;
+accessible field net/minecraft/loot/entry/LeafEntry functions [Lnet/minecraft/loot/function/LootFunction;

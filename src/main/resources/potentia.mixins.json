@@ -4,15 +4,17 @@
   "package": "xyz.blueben.potentia.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
-    "LivingEntityMixin",
-    "MerchantEntityMixin",
-    "GiveGiftsToHeroTaskMixin",
-    "EntityMixin",
-    "MobEntityMixin",
     "BrainMixin",
-    "WitherEntityMixin",
+    "EntityMixin",
+    "GiveGiftsToHeroTaskMixin",
+    "LeafEntryBuilderMixin",
+    "LivingEntityMixin",
+    "LootTableEntryBuilderMixin",
     "LootTableMixin",
-    "PiglinEntityMixin"
+    "MerchantEntityMixin",
+    "MobEntityMixin",
+    "PiglinEntityMixin",
+    "WitherEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1
