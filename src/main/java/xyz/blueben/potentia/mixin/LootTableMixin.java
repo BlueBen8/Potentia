@@ -21,6 +21,7 @@ import net.minecraft.loot.function.LootFunction;
 import net.minecraft.registry.Registries;
 import net.minecraft.util.Identifier;
 import org.jetbrains.annotations.Nullable;
+import org.spongepowered.asm.mixin.Debug;
 import org.spongepowered.asm.mixin.Final;
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.Shadow;
@@ -29,6 +30,8 @@ import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import xyz.blueben.potentia.HasBarterTarget;
 import xyz.blueben.potentia.power.BarterLuckPower;
+
+@Debug(export = true)
 
 @Mixin(LootTable.class)
 public abstract class LootTableMixin {
@@ -86,7 +89,7 @@ public abstract class LootTableMixin {
                   return entry;
                 }
 
-                return ItemEntry.builder(itemEntry.item).weight(modifiedItemWeight);
+                return ItemEntry.builder(itemEntry.item).weight(modifiedItemWeight).build();
               }).toArray(LootPoolEntry[]::new);
 
           return LootPool.builder()
@@ -94,7 +97,7 @@ public abstract class LootTableMixin {
               .conditionally(List.of(pool.conditions))
               .apply(List.of(pool.functions))
               .rolls(pool.rolls)
-              .bonusRolls(pool.bonusRolls);
+              .bonusRolls(pool.bonusRolls).build();
         }).toArray(LootPool[]::new);
 
         LootTable modifiedLootTable = LootTable.builder()

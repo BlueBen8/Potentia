@@ -10,7 +10,9 @@
     "EntityMixin",
     "MobEntityMixin",
     "BrainMixin",
-    "WitherEntityMixin"
+    "WitherEntityMixin",
+    "LootTableMixin",
+    "PiglinEntityMixin"
   ],
   "injectors": {
     "defaultRequire": 1

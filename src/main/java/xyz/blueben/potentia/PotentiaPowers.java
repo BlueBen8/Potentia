@@ -6,12 +6,13 @@ import net.minecraft.registry.Registry;
 import xyz.blueben.potentia.power.*;
 
 
-public class ModPowers {
+public class PotentiaPowers {
     public static final PowerFactory<?> NULLIFY_DAMAGE_DEALT = NullifyDamageDealtPower.createFactory();
     public static final PowerFactory<?> NULLIFY_DAMAGE_TAKEN = NullifyDamageTakenPower.createFactory();
     public static final PowerFactory<?> CHARISMA = CharismaPower.createFactory();
     public static final PowerFactory<?> MAKE_MOBS_FRIENDLY = MakeMobsFriendlyPower.createFactory();
     public static final PowerFactory<?> MAKE_MOBS_HOSTILE = MakeMobsHostilePower.createFactory();
+    public static final PowerFactory<?> BARTER_LUCK = BarterLuckPower.createFactory();
 
     public static void init() {
         Registry.register(ApoliRegistries.POWER_FACTORY, NULLIFY_DAMAGE_DEALT.getSerializerId(), NULLIFY_DAMAGE_DEALT);
@@ -19,6 +20,7 @@ public class ModPowers {
         Registry.register(ApoliRegistries.POWER_FACTORY, CHARISMA.getSerializerId(), CHARISMA);
         Registry.register(ApoliRegistries.POWER_FACTORY, MAKE_MOBS_FRIENDLY.getSerializerId(), MAKE_MOBS_FRIENDLY);
         Registry.register(ApoliRegistries.POWER_FACTORY, MAKE_MOBS_HOSTILE.getSerializerId(), MAKE_MOBS_HOSTILE);
+        Registry.register(ApoliRegistries.POWER_FACTORY, BARTER_LUCK.getSerializerId(), BARTER_LUCK);
     }
 }
 

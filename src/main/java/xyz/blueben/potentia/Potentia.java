@@ -15,7 +15,7 @@ public class Potentia implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        ModPowers.init();
-        ModActions.init();
+        PotentiaPowers.init();
+        PotentiaActions.init();
     }
 }

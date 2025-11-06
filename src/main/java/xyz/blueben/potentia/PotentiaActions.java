@@ -8,7 +8,7 @@ import xyz.blueben.potentia.action.entity.CrashDownEntityAction;
 
 
 
-public class ModActions {
+public class PotentiaActions {
     public static final ActionFactory<Entity> CRASH_DOWN = CrashDownEntityAction.createFactory();
 
     public static void init() {
